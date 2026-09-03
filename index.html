@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보 처리방침 | Orbit</title>
+<style>
+  :root {
+    --bg: #000000;
+    --panel: #0c0c0f;
+    --line: #232326;
+    --text: #E6ECFF;
+    --text-dim: #8a8f9e;
+    --accent: #7F9BFF;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
+
+  /* ambient starfield */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(230,236,255,0.5) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 15%, rgba(230,236,255,0.4) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 85% 60%, rgba(230,236,255,0.35) 50%, transparent 51%),
+      radial-gradient(1px 1px at 40% 80%, rgba(230,236,255,0.4) 50%, transparent 51%),
+      radial-gradient(1px 1px at 10% 65%, rgba(230,236,255,0.3) 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 60% 45%, rgba(127,155,255,0.3) 50%, transparent 51%),
+      radial-gradient(1px 1px at 92% 90%, rgba(230,236,255,0.3) 50%, transparent 51%);
+    background-repeat: no-repeat;
+    opacity: 0.7;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 24px 120px;
+  }
+
+  header.hero {
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  .eyebrow .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0 0 14px;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .meta {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .intro {
+    margin-top: 28px;
+    padding: 20px 22px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .intro strong { color: var(--white); }
+
+  nav.toc {
+    margin: 40px 0 64px;
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--panel);
+  }
+
+  nav.toc .toc-title {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  nav.toc ol {
+    columns: 2;
+    -webkit-columns: 2;
+    column-gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  nav.toc li {
+    break-inside: avoid;
+    margin-bottom: 8px;
+  }
+
+  nav.toc a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  nav.toc a:hover { color: var(--accent); }
+
+  section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  section h2 {
+    font-size: 19px;
+    color: var(--white);
+    margin: 0 0 16px;
+    scroll-margin-top: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  section h2 .num {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  section p { margin: 0 0 14px; color: var(--text); font-size: 15px; }
+  section ul, section ol.plain { margin: 0 0 14px; padding-left: 20px; }
+  section li { margin-bottom: 8px; font-size: 15px; }
+
+  .callout {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--text-dim);
+    margin: 16px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  th {
+    color: var(--text-dim);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  td { color: var(--text); }
+
+  a { color: var(--accent); }
+
+  .officer-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 8px 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .officer-card dt { color: var(--text-dim); }
+  .officer-card dd { margin: 0; color: var(--white); }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .back-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 48px 18px 100px; }
+    h1 { font-size: 27px; }
+    nav.toc ol { columns: 1; }
+    .officer-card { grid-template-columns: 76px 1fr; }
+  }
+
+  /* 모바일에서는 표를 카드로 바꾼다.
+     예전에는 라벨과 값을 좌우로 밀어(space-between) 붙였는데, 값이 긴 한국어
+     문장이면 좁은 칸에 눌려 줄이 잘게 쪼개졌다. 라벨을 값 위에 얹고 둘 다
+     한 줄을 통째로 쓰게 한다. */
+  @media (max-width: 720px) {
+    table, table tbody, table tr, table td {
+      display: block;
+      width: 100%;
+    }
+    /* 헤더 줄은 각 값 위에 라벨로 다시 나오므로 감춘다. */
+    table tr:first-child { display: none; }
+    table tr {
+      margin: 0 0 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+    table tr:last-child { margin-bottom: 0; }
+    table td {
+      padding: 0;
+      border: none;
+      font-size: 14.5px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+    table td + td { margin-top: 10px; }
+
+    /* 일반 표: data-label을 값 위에 얹는다. */
+    table:not(.kv-table) td::before {
+      content: attr(data-label);
+      display: block;
+      color: var(--text-dim);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      margin-bottom: 3px;
+    }
+
+    /* 항목/내용 두 칸짜리 표: 첫 칸이 곧 라벨이다. */
+    table.kv-table td:first-child {
+      color: var(--accent);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+      margin-bottom: 3px;
+      padding: 0;
+    }
+    table.kv-table td + td { margin-top: 0; }
+  }
+
+
+    /* 모바일 공통.
+       긴 이메일 주소나 URL이 화면 밖으로 나가지 않게 하고, iOS가 가로 모드에서
+       글자를 임의로 키우는 것을 막는다. */
+    html { -webkit-text-size-adjust: 100%; }
+    body { overflow-x: hidden; }
+    p, li, dd, td, .callout { overflow-wrap: anywhere; }
+    a { overflow-wrap: anywhere; }
+
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span>ORBIT · PRIVACY POLICY</div>
+    <h1>개인정보 처리방침</h1>
+    <p class="meta">공고일자 2026.09.03 · 시행일자 2026.09.03</p>
+    <div class="intro">
+      <strong>래그텍(RagTech)</strong>(이하 "회사"라 함)는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여, 회사가 제공하는 서비스 <strong>'Orbit'</strong>에 대하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="목차">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><a href="#a1">제1조 개인정보의 처리 목적</a></li>
+      <li><a href="#a2">제2조 처리하는 개인정보의 항목</a></li>
+      <li><a href="#a3">제3조 처리 및 보유 기간</a></li>
+      <li><a href="#a4">제4조 파기절차 및 방법</a></li>
+      <li><a href="#a5">제5조 개인정보의 제3자 제공</a></li>
+      <li><a href="#a6">제6조 상대방 정보 처리 특칙</a></li>
+      <li><a href="#a7">제7조 국외 수집 및 이전</a></li>
+      <li><a href="#a8">제8조 개인정보 처리업무의 위탁</a></li>
+      <li><a href="#a9">제9조 안전성 확보조치</a></li>
+      <li><a href="#a10">제10조 자동 수집 장치</a></li>
+      <li><a href="#a11">제11조 자동화된 결정</a></li>
+      <li><a href="#a12">제12조 정보주체의 권리·행사방법</a></li>
+      <li><a href="#a13">제13조 개인정보 보호책임자</a></li>
+      <li><a href="#a14">제14조 권익침해 구제방법</a></li>
+      <li><a href="#a15">제15조 처리방침의 변경</a></li>
+    </ol>
+  </nav>
+
+  <section id="a1">
+    <h2><span class="num">01</span>개인정보의 처리 목적</h2>
+    <p>회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
+    <ol class="plain">
+      <li><strong>회원 가입 및 관리</strong>: 회원 가입의사 확인, 본인 식별, 회원자격 유지·관리, 서비스 부정이용 방지, 고지·통지, 고충처리</li>
+      <li><strong>운세 콘텐츠 생성 및 제공</strong>: 이용자가 입력한 생년월일·출생시각·출생지·성별 등을 기반으로 사주·별자리 운세 콘텐츠를 생성하여 제공</li>
+      <li><strong>연애운 세부 콘텐츠 제공(상대방 정보 처리)</strong>: 이용자가 궁합·재회운·장거리연애운 등 특정 카테고리 이용을 위해 직접 입력한 상대방의 생년월일·출생시각 등을 기반으로, 이용자 본인과 상대방의 정보를 결합한 콘텐츠(궁합 해석 등)를 생성</li>
+      <li><strong>친구 연결 서비스("우리의 궤도") 제공</strong>: 초대 코드를 통해 상호 승인된 이용자 간 궁합 정보 표시</li>
+      <li><strong>구독 및 인앱 결제 서비스 제공</strong>: 구독(베이직/프리미엄) 및 별가루(인앱 재화) 구매에 따른 서비스 제공, 거래 확인</li>
+      <li><strong>알림 서비스 제공</strong>: 이용자가 신청한 경우 매일 정해진 시간에 오늘의 운세 알림(Daily Fortune) 발송</li>
+      <li><strong>민원 처리</strong>: 민원인의 신원 확인, 민원사항 확인, 처리결과 통보</li>
+      <li><strong>서비스 개선 및 통계 분석</strong>: 서비스 이용기록 분석, 접속빈도 파악, 통계 작성</li>
+    </ol>
+  </section>
+
+  <section id="a2">
+    <h2><span class="num">02</span>처리하는 개인정보의 항목</h2>
+
+    <p><strong>1. 회원가입 및 프로필 설정 시 (필수)</strong></p>
+    <ul>
+      <li>Apple 로그인 식별정보 및 Apple이 제공하는 이메일 주소(이용자가 선택한 경우 Apple의 비공개 이메일 릴레이 주소)</li>
+      <li>이름(또는 닉네임), 성별</li>
+      <li>생년월일</li>
+      <li>출생시각 (정밀도 선택: 시·분 / 시간만 / 대략 / 모름)</li>
+    </ul>
+
+    <p><strong>2. 프로필 설정 시 (선택)</strong></p>
+    <ul>
+      <li>출생지 (시/도 단위)</li>
+      <li>프로필 사진</li>
+    </ul>
+
+    <p><strong>3. 연애운 세부 카테고리 이용 시 (해당 기능 이용자에 한함, 선택)</strong></p>
+    <ul>
+      <li>이용자가 직접 입력하는 상대방의 생년월일, 출생시각(선택)</li>
+      <li>이 정보는 궁합·재회운·장거리연애운 등 상대방 정보가 필요한 콘텐츠 생성 목적으로만 사용되며, 제6조에서 정한 별도 원칙에 따라 처리됩니다.</li>
+    </ul>
+
+    <p><strong>4. 친구 연결("우리의 궤도") 이용 시</strong></p>
+    <ul>
+      <li>초대 코드, 연결이 승인된 상대방 이용자의 표시정보(닉네임, 별자리 등 공개 프로필 범위)</li>
+    </ul>
+
+    <p><strong>5. 결제 시</strong></p>
+    <p>회사는 결제 관련 정보를 직접 수집하지 않습니다. 결제는 Apple Inc.가 자체 인앱결제 시스템(App Store)을 통해 처리하며, 회사는 구독·구매 상태 확인을 위한 거래 식별자(구매 영수증 정보) 및 결제 완료 여부만을 전달받습니다. 카드번호 등 결제수단 원본 정보는 Apple이 보관하며 회사는 접근할 수 없습니다.</p>
+
+    <p><strong>6. 서비스 이용 과정에서 자동으로 생성·수집되는 정보</strong></p>
+    <ul>
+      <li>앱 접속 기록, 서비스 이용기록(운세 조회·결제 시도 등 서비스 운영에 필요한 최소한의 기록)</li>
+    </ul>
+    <p>회사는 광고식별자(IDFA), 쿠키, 기기 고유식별정보를 수집하지 않으며, 광고·분석 목적의 제3자 SDK를 사용하지 않습니다.</p>
+
+    <div class="callout">회사는 만 14세 미만 아동을 대상으로 서비스를 제공하지 않으며, 만 14세 미만 아동의 개인정보를 수집하지 않습니다. 회원가입 시 생년월일 확인을 통해 만 14세 미만으로 판별되는 경우 가입이 제한됩니다.</div>
+  </section>
+
+  <section id="a3">
+    <h2><span class="num">03</span>개인정보의 처리 및 보유 기간</h2>
+    <table>
+      <tr><th>처리 목적</th><th>보유 기간</th><th>근거</th></tr>
+      <tr><td data-label="처리 목적">회원 가입 및 관리</td><td data-label="보유 기간">회원 탈퇴 시까지</td><td data-label="근거">-</td></tr>
+      <tr><td data-label="처리 목적">본인 운세 콘텐츠 생성(생년월일·출생시각·출생지)</td><td data-label="보유 기간">회원 탈퇴 시까지</td><td data-label="근거">-</td></tr>
+      <tr><td data-label="처리 목적"><strong>이용자가 입력한 상대방 정보(생년월일 등)</strong></td><td data-label="보유 기간"><strong>해당 리포트 생성 즉시 파기</strong><br><span style="font-size:.9em">생년월일·출생시각은 저장하지 않으며, 리포트에는 계산된 별자리만 남습니다.</span></td><td data-label="근거">제6조 참조</td></tr>
+      <tr><td data-label="처리 목적">친구 연결 정보</td><td data-label="보유 기간">연결 해제 또는 회원 탈퇴 시까지</td><td data-label="근거">-</td></tr>
+      <tr><td data-label="처리 목적">구독·구매 거래 기록<br><span style="font-size:.9em">이름·생년월일 등 개인을 알아볼 수 있는 정보와 분리하여 보존하며, 기간이 지나면 자동으로 파기됩니다.</span></td><td data-label="보유 기간">5년</td><td data-label="근거">전자상거래법</td></tr>
+      <tr><td data-label="처리 목적">소비자 불만·분쟁처리 기록</td><td data-label="보유 기간">3년</td><td data-label="근거">전자상거래법</td></tr>
+      <tr><td data-label="처리 목적">앱 접속(방문) 기록</td><td data-label="보유 기간">3개월</td><td data-label="근거">통신비밀보호법</td></tr>
+      <tr><td data-label="처리 목적">세법에 따른 증빙서류</td><td data-label="보유 기간">5년</td><td data-label="근거">국세기본법</td></tr>
+    </table>
+  </section>
+
+  <section id="a4">
+    <h2><span class="num">04</span>개인정보의 파기절차 및 방법</h2>
+    <p>① 회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.</p>
+    <p>② <strong>상대방 정보의 파기</strong>: 이용자가 입력한 상대방의 생년월일 등 정보는 해당 콘텐츠(궁합·재회운 등) 생성 처리가 완료된 즉시 파기함을 원칙으로 하며, 별도의 데이터베이스에 지속 보관하지 않습니다.</p>
+    <p>③ <strong>파기방법</strong>: 전자적 파일 형태로 기록·저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.</p>
+  </section>
+
+  <section id="a5">
+    <h2><span class="num">05</span>개인정보의 제3자 제공</h2>
+    <p>회사는 정보주체의 개인정보를 제1조에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 「개인정보 보호법」 제17조 및 제18조에 해당하는 경우를 제외하고는 개인정보를 제3자에게 제공하지 않습니다.</p>
+  </section>
+
+  <section id="a6">
+    <h2><span class="num">06</span>이용자가 입력하는 상대방 정보의 처리에 관한 특칙</h2>
+    <p>① 회사는 궁합운, 재회운(심화형), 장거리 연애운(연동형) 등 일부 서비스에서, 이용자 본인이 아닌 제3자(이하 "상대방")의 생년월일·출생시각 정보를 이용자로부터 직접 입력받아 처리합니다.</p>
+    <p>② <strong>처리 원칙</strong></p>
+    <ul>
+      <li>상대방 정보는 해당 콘텐츠 생성이라는 목적으로만 일회적으로 사용되며, 그 외의 목적으로 이용되지 않습니다.</li>
+      <li>상대방 정보는 원칙적으로 <strong>저장하지 않으며</strong>, 콘텐츠 생성 처리가 완료되는 즉시 파기합니다.</li>
+      <li>상대방의 정보 입력 정확도(시각을 모르는 경우 등)에 따라 결과의 오차가 발생할 수 있음을 이용자에게 화면에 안내합니다.</li>
+    </ul>
+    <p>③ <strong>이용자에 대한 권고</strong>: 회사는 이용자가 상대방의 정보를 입력하기 전, 해당 정보 처리에 대하여 상대방에게 알리거나 동의를 구할 것을 권장합니다. 이용자가 입력한 상대방 정보로 인해 발생하는 상대방과의 분쟁에 대해, 회사는 정보를 저장·보관하지 않는 범위 내에서 책임을 지지 않습니다.</p>
+  </section>
+
+  <section id="a7">
+    <h2><span class="num">07</span>개인정보의 국외 수집 및 이전에 관한 사항</h2>
+    <p>회사는 운세 콘텐츠 생성을 위해 이용자가 입력한 생년월일·출생시각·성별 등 정보의 일부를 국외에 소재한 AI 서비스 제공사의 서버로 전송하여 처리합니다.</p>
+    <table class="kv-table">
+      <tr><th>항목</th><th>내용</th></tr>
+      <tr><td>이전받는 자</td><td>Google LLC (Gemini API 제공)</td></tr>
+      <tr><td>이전되는 국가</td><td>미국 등 (Google의 글로벌 서버 인프라 운영 특성상, 데이터가 처리되는 특정 국가는 Google의 정책에 따라 유동적으로 결정되며 특정 국가로 고정되지 않습니다. 구체적인 데이터 처리 방식은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google의 개인정보처리방침</a> 및 Gemini API 관련 약관을 통해 확인하실 수 있습니다.)</td></tr>
+      <tr><td>이전일시 및 방법</td><td>콘텐츠 생성 요청 시점에 네트워크를 통해 실시간 전송</td></tr>
+      <tr><td>이전받는 자의 이용 목적</td><td>운세 콘텐츠 생성(AI 모델 처리)</td></tr>
+      <tr><td>이전되는 개인정보 항목</td><td>이름(또는 닉네임), 성별, 그리고 회사 서버가 생년월일·출생시각·출생지로부터 미리 계산한 천체 배치 결과값<br>생년월일·출생시각·출생지 원본과 상대방의 생년월일·출생시각은 전송하지 않으며, 친구 궁합의 경우 이름 대신 익명 라벨(A·B)만 전송합니다.</td></tr>
+      <tr><td>보유·이용 기간</td><td>콘텐츠 생성 처리 완료 후 즉시 삭제 (Google의 API 데이터 보유 정책에 따름)</td></tr>
+      <tr><td>국외이전 거부 방법</td><td>서비스 특성상 국외이전에 동의하지 않을 경우 운세 콘텐츠 생성 기능 이용이 제한됩니다.</td></tr>
+    </table>
+    <div class="callout">인앱결제(Apple)와 관련하여, 결제 처리 자체는 Apple Inc.(미국 소재)의 자체 시스템에서 이루어지며, 회사는 결제 원본 정보(카드정보 등)를 수집·전송하지 않습니다. 이는 회사에 의한 개인정보 국외이전이 아니라, Apple의 자체 서비스 제공 과정에 해당합니다.</div>
+  </section>
+
+  <section id="a8">
+    <h2><span class="num">08</span>개인정보 처리업무의 위탁</h2>
+    <table>
+      <tr><th>수탁업체</th><th>위탁업무 내용</th><th>보유·이용 기간</th></tr>
+      <tr><td data-label="수탁업체">Apple Inc.</td><td data-label="위탁업무 내용">인앱결제(구독·별가루 구매) 처리 및 결제정보 관리</td><td data-label="보유·이용 기간">위탁계약 종료 시까지 (Apple 자체 정책에 따름)</td></tr>
+      <tr><td data-label="수탁업체">Supabase Inc.</td><td data-label="위탁업무 내용">서비스 운영을 위한 서버 및 데이터베이스 호스팅</td><td data-label="보유·이용 기간">위탁계약 종료 시까지</td></tr>
+      <tr><td data-label="수탁업체">Google LLC (Gemini API)</td><td data-label="위탁업무 내용">입력된 정보 기반 운세 콘텐츠 생성 처리</td><td data-label="보유·이용 기간">처리 완료 즉시</td></tr>
+    </table>
+    <p>회사는 위탁계약 체결 시 「개인정보 보호법」 제26조에 따라 위탁업무 수행목적 외 개인정보 처리금지, 기술적·관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리·감독, 손해배상 등 책임에 관한 사항을 계약서 등 문서에 명시하고, 수탁자가 개인정보를 안전하게 처리하는지를 감독하고 있습니다.</p>
+  </section>
+
+  <section id="a9">
+    <h2><span class="num">09</span>개인정보의 안전성 확보조치</h2>
+    <ol class="plain">
+      <li><strong>관리적 조치</strong>: 내부관리계획 수립·시행, 개인정보 취급 직원의 최소화 및 정기적 교육</li>
+      <li><strong>기술적 조치</strong>: 개인정보처리시스템 접근권한 관리, 접근통제시스템 설치, 생년월일 등 고유식별 가능 정보의 암호화, 보안프로그램 설치</li>
+      <li><strong>물리적 조치</strong>: 전산실, 자료보관실 등의 접근통제</li>
+    </ol>
+  </section>
+
+  <section id="a10">
+    <h2><span class="num">10</span>개인정보 자동 수집 장치의 설치·운영 및 그 거부에 관한 사항</h2>
+    <p>① 회사는 쿠키(cookie), 광고식별자(IDFA) 등 개인정보를 자동으로 수집하는 장치를 설치·운영하지 않습니다.</p>
+    <p>② 회사는 광고 및 이용자 행태 분석을 목적으로 하는 제3자 SDK를 앱에 포함하지 않으며, 맞춤형 광고를 제공하지 않습니다.</p>
+  </section>
+
+  <section id="a11">
+    <h2><span class="num">11</span>자동화된 결정에 관한 사항</h2>
+    <p>회사가 제공하는 운세 콘텐츠는 이용자가 입력한 정보를 바탕으로 AI가 콘텐츠를 생성·제공하는 것으로, 이는 정보주체의 권리 또는 의무에 중대한 영향을 미치는 「개인정보 보호법」상의 자동화된 결정에 해당하지 않습니다.</p>
+  </section>
+
+  <section id="a12">
+    <h2><span class="num">12</span>정보주체와 법정대리인의 권리·의무 및 행사방법</h2>
+    <p>① 정보주체는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지·동의철회 요구 등의 권리를 행사할 수 있습니다.</p>
+    <p>② 제1항에 따른 권리 행사는 회사에 대해 「개인정보 보호법」 시행령 제41조제1항에 따라 서면, 전자우편, 앱 내 1:1 문의 등을 통하여 하실 수 있으며, 회사는 이에 대해 지체없이 조치하겠습니다.</p>
+    <p>③ 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다.</p>
+  </section>
+
+  <section id="a13">
+    <h2><span class="num">13</span>개인정보 보호책임자</h2>
+    <dl class="officer-card">
+      <dt>성명</dt><dd>이용우</dd>
+      <dt>직책</dt><dd>대표</dd>
+      <dt>연락처</dt><dd>010-4320-8513 · dldyddn2004@naver.com</dd>
+    </dl>
+    <p style="margin-top:16px;">정보주체께서는 회사의 서비스를 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자에게 문의하실 수 있습니다.</p>
+  </section>
+
+  <section id="a14">
+    <h2><span class="num">14</span>권익침해 구제방법</h2>
+    <p>정보주체는 개인정보침해로 인한 구제를 받기 위하여 아래 기관에 분쟁해결이나 상담 등을 신청할 수 있습니다.</p>
+    <ul>
+      <li>개인정보분쟁조정위원회: (국번없이) 1833-6972 · <a href="https://www.kopico.go.kr" target="_blank" rel="noopener">www.kopico.go.kr</a></li>
+      <li>개인정보침해신고센터: (국번없이) 118 · <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener">privacy.kisa.or.kr</a></li>
+      <li>대검찰청: (국번없이) 1301 · <a href="https://www.spo.go.kr" target="_blank" rel="noopener">www.spo.go.kr</a></li>
+      <li>경찰청: (국번없이) 182 · <a href="https://ecrm.police.go.kr" target="_blank" rel="noopener">ecrm.police.go.kr</a></li>
+    </ul>
+  </section>
+
+  <section id="a15">
+    <h2><span class="num">15</span>개인정보 처리방침의 변경</h2>
+    <p>이 개인정보 처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지합니다.</p>
+    <p>공고일자: 2026.09.03 &nbsp;·&nbsp; 시행일자: 2026.09.03</p>
+    <p style="font-size:.92em">이전 방침(2026.08.29 시행)에서 다음이 변경되었습니다.</p>
+    <ul style="font-size:.92em">
+      <li>광고식별자(IDFA)·쿠키를 수집하지 않는다는 사실을 반영하고 관련 조항을 삭제했습니다.</li>
+      <li>로그인 방식을 Apple 로그인으로 한정했습니다.</li>
+      <li>Gemini API로 이전되는 항목을 실제 전송 범위(이름·성별과 계산된 결과값)로 정정했습니다.</li>
+      <li>결제 기록을 개인정보와 분리하여 보존하고 기간 경과 시 자동 파기함을 명시했습니다.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© 2026 RagTech. All rights reserved.</span>
+    <span>Orbit — 개인정보 처리방침</span>
+  </footer>
+
+</div>
+
+<a class="back-top" href="#top" aria-label="맨 위로">↑</a>
+
+</body>
+</html>
